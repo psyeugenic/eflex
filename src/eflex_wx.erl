@@ -2940,7 +2940,7 @@ clipboard_copy(Text) ->
     case wxClipboard:open(Clipboard) of
 	true ->
 	    TextObj = wxTextDataObject:new([{text, Text}]),
-	    true = wxClipboard:setData(Clipboard, wx:typeCast(TextObj, wxDataObject)),
+	    _ = wxClipboard:setData(Clipboard, wx:typeCast(TextObj, wxDataObject)),
 	    ok = wxClipboard:close(Clipboard),
 	    ok;
 	false ->
